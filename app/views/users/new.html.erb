@@ -1,0 +1,50 @@
+<% flash.each do |key,msg| %>
+    <% message = msg.map { |m| m unless m.to_s =~ /digest/} %>
+    <% message.compact! %>
+    <%= content_tag :p, message.join('; '), :id => key %>
+<% end %>
+
+<%= link_to('Список пользователей', users_path) %>
+
+<h2>Регистрация</h2>
+
+<%= form_for @user do |f| %>
+
+  <div>
+    <%= f.label :last_name, "Фамилия" %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :first_name, "Имя" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :patronymic_name, "Отчество" %><br />
+    <%= f.text_field :patronymic_name %>
+  </div>
+
+  <div>
+    <%= f.label :date_of_birth, "Дата рождения" %><br />
+    <%= f.date_select :date_of_birth, {:order => [:day, :month, :year], :prompt => true, :start_year => 1900, :end_year => Time.now.year} %>
+  </div>
+
+  <div>
+    <%= f.label :email, "Электронная почта" %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :username, "Логин" %> <i>(от 5 до 32 символов)</i> <br />
+    <%= f.text_field :username %>
+  </div>
+
+  <div>
+    <%= f.label :password, "Пароль" %>
+    <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div><%= f.submit "Зарегистрироваться" %></div>
+<% end %>

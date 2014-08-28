@@ -1,3 +1,4 @@
+ruby '1.9.3'
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.17'
@@ -23,7 +24,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -36,3 +37,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+end
