@@ -1,8 +1,8 @@
-<%= link_to('Новый пользователь', root_url) %>
+<%= link_to('Новый пользователь', root_url, class: "navigation-link") %>
 
 <h2>Список зарегистрированных пользователей</h2>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>№</th>
@@ -26,7 +26,7 @@
       <% else %>
         <td>—</td>
       <% end %>
-      <%if u.email %>
+      <%if u.email and u.email != "" %>
         <td><%= u.email%></td>
       <% else %>
         <td>—</td>

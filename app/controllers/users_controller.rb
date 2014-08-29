@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Success!"
+      flash[:notice] = "Пользователь зарегистрирован!"
     else
       flash[:error] = @user.errors.full_messages
     end
