@@ -1,0 +1,22 @@
+<!--SocPost.Net start-->
+<script type="text/javascript">
+//<![CDATA[
+  (function(){ 
+    var key = '8e331ecb48666831d3db1d4736a097a2';
+    var _soc_sp = [
+      'http://test.socpost.net/socpost/link_list?website_key='+key
+                          +'&page_url='+window.location.href,
+          'http://test.socpost.net/assets/socpost_main/socpost.js'
+    ];
+
+    _soc_sp.forEach(function(script_src){
+      var d=document, g=d.createElement('script'),
+      s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+      g.defer=false; g.async=false; g.src=script_src;
+      s.parentNode.insertBefore(g,s); 
+    });
+  })();
+
+//]]>
+</script>
+<!--/SocPost.Net end-->
